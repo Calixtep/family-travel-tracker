@@ -10,10 +10,10 @@
 </head>
 
 <body>
-  <h1>Add a Family Member</h1>
-  <form action="/new" method="post">
+  <h1>Edit Family Member: <%= memberName %></h1>
+  <form action="/edit" method="post">
     <p>What's your name?</p>
-    <input type="text" name="name" autofocus placeholder="<%= locals.error ? error :  'Enter member name'%>">
+    <input type="text" name="name" value="<%= memberName %>" placeholder="<%= locals.error ? error :  'Enter member name'%>">
 
     <p>Pick a color:</p>
     <input type="radio" name="color" id="red" value="red" />
@@ -46,7 +46,11 @@
     <input type="radio" name="color" id="pink" value="pink" />
     <label for="pink"><span class="pink"></span></label>
     <div class="spacer"></div>
-    <button type="submit">Add</button>
+    <button type="submit" value="<% memberColor %>">Submit Changes</button>
+  </form>
+
+  <form action="/removeMember" method="post">
+    <button type="submit" style="background-color: red;">Remove Member</button>
   </form>
 </body>
 
